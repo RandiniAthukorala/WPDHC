@@ -55,7 +55,7 @@
 <body class="bg-darkBg text-amber-50 min-h-screen overflow-x-hidden">
 
     <div class="fixed inset-0 z-0 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1566296316784-47ceea2a8820?auto=format&fit=crop&w=2200&q=80" alt="" class="w-full h-full object-cover ken" onerror="this.src='https://images.unsplash.com/photo-1588598111933-d2783457a44f?auto=format&fit=crop&w=2000&q=80'">
+        <img src="images/kelaniya2.webp" alt="" class="w-full h-full object-cover ken">
         <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-[#140c08]/70 to-[#140c08]"></div>
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,158,11,.18),transparent_42%),radial-gradient(circle_at_90%_80%,rgba(194,65,12,.2),transparent_40%)]"></div>
     </div>
@@ -89,7 +89,7 @@
 
         <section class="px-5 sm:px-8 max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
             <button type="button" data-type="urban" onclick="pickPlace('urban')" class="place-card group relative h-44 sm:h-56 rounded-3xl overflow-hidden text-left">
-                <img src="https://images.unsplash.com/photo-1588598111933-d2783457a44f?auto=format&fit=crop&w=800&q=70" alt="Colombo Fort and Pettah" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <img src="images/colomboPettah2.jpg" alt="Colombo Fort and Pettah" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3">
                     <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold">Half day · Colombo</p>
@@ -97,7 +97,7 @@
                 </div>
             </button>
             <button type="button" data-type="urban" onclick="pickPlace('urban')" class="place-card group relative h-44 sm:h-56 rounded-3xl overflow-hidden text-left">
-                <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=800&q=70" alt="Kelaniya temple" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1548013146-729797192070?auto=format&fit=crop&w=800&q=70'">
+                <img src="images/kelaniya1.webp" alt="Kelaniya Raja Maha Vihara" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3">
                     <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold">Living temple</p>
@@ -105,7 +105,7 @@
                 </div>
             </button>
             <button type="button" data-type="forest" onclick="pickPlace('forest')" class="place-card group relative h-44 sm:h-56 rounded-3xl overflow-hidden text-left">
-                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=70" alt="Forest monastery" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <img src="images/Pilikuththuwa1.webp" alt="Pilikuththuwa" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3">
                     <p class="text-[10px] uppercase tracking-widest text-emerald-200 font-bold">One day · Gampaha</p>
@@ -113,7 +113,7 @@
                 </div>
             </button>
             <button type="button" data-type="prehistoric" onclick="pickPlace('prehistoric')" class="place-card group relative h-44 sm:h-56 rounded-3xl overflow-hidden text-left">
-                <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=800&q=70" alt="Cave landscape" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <img src="images/pahiyangala2.webp" alt="Pahiyangala" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3">
                     <p class="text-[10px] uppercase tracking-widest text-orange-200 font-bold">Full extra day · Kalutara</p>
@@ -145,8 +145,13 @@
                                     <span><i class="fa-solid fa-bell mr-1"></i> Events on this date</span>
                                     <button type="button" onclick="setSampleDate()" class="underline text-amber-100/80">Use 27 Sep 2026</button>
                                 </div>
-                                <div class="text-amber-50 flex items-center justify-between gap-2">
-                                    <span>World Tourism Day programme · Colombo</span>
+                                <div class="flex gap-2 items-center">
+                                    <img src="images/nawamperehara.webp" alt="Perahera" class="w-16 h-12 object-cover rounded-lg shrink-0">
+                                    <img src="images/nawagamuwaPerehara.webp" alt="Temple festival" class="w-16 h-12 object-cover rounded-lg shrink-0">
+                                    <div class="text-amber-50 min-w-0">
+                                        <p>World Tourism Day programme · Colombo</p>
+                                        <p class="text-amber-100/70">Perahera and Poya appear when those dates are selected.</p>
+                                    </div>
                                     <span class="shrink-0 px-2 py-0.5 bg-amber-400 text-darkBg rounded-full text-[10px] font-extrabold">SAMPLE</span>
                                 </div>
                             </div>
@@ -209,7 +214,7 @@
     </div>
 
     <footer class="relative z-10 px-6 py-5 text-center text-xs text-amber-100/45">
-        Western Province Digital Heritage Corridor — conceptual QR–web demonstration.
+        Western Province Digital Heritage Corridor — conceptual QR–web demonstration. Photographs used for illustration.
     </footer>
 
     <script>
@@ -255,11 +260,14 @@
             return '';
         }
 
-        function moduleCard(photo, district, badge, title, step1, step2) {
+        function moduleCard(photo, district, badge, title, step1, step2, photo2) {
+            const extra = photo2 ? `<img src="${photo2}" alt="" class="w-1/3 h-36 object-cover">` : '';
+            const widthClass = photo2 ? 'w-2/3' : 'w-full';
             return `
                 <div class="rounded-2xl overflow-hidden border border-amber-200/20 bg-black/30">
-                    <div class="h-36 w-full overflow-hidden">
-                        <img src="${photo}" alt="" class="w-full h-full object-cover">
+                    <div class="h-36 w-full overflow-hidden flex">
+                        <img src="${photo}" alt="" class="${widthClass} h-full object-cover">
+                        ${extra}
                     </div>
                     <div class="p-4 space-y-3">
                         <div class="flex items-center justify-between">
@@ -290,17 +298,18 @@
             if (timeWindow === 'short') {
                 titleText = 'Half day — Fort, Pettah and Kelaniya';
                 itineraryHTML += moduleCard(
-                    'https://images.unsplash.com/photo-1588598111933-d2783457a44f?auto=format&fit=crop&w=1200&q=70',
+                    'images/colomboPettah.jpg',
                     'Colombo and Gampaha',
                     'Map and QR',
                     'Urban streets and a living temple',
                     '<strong class="text-white">Colombo Fort and Pettah</strong> — walking stories and on-site QR. Linked illustrated walks stay in place; this page does not replace them.',
-                    '<strong class="text-white">Kelaniya Raja Maha Vihara</strong> — Sinhala, Tamil and English. Guidance pauses during ritual hours.'
+                    '<strong class="text-white">Kelaniya Raja Maha Vihara</strong> — Sinhala, Tamil and English. Guidance pauses during ritual hours.',
+                    'images/kelaniyaart.webp'
                 );
             } else if (timeWindow === 'half') {
                 titleText = 'One day — Pilikuththuwa cluster';
                 itineraryHTML += moduleCard(
-                    'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=70',
+                    'images/pilikuththuwa2.webp',
                     'Gampaha',
                     'Offline pack',
                     'Forest cave monasteries',
@@ -310,7 +319,7 @@
             } else {
                 titleText = 'Full day — Pahiyangala';
                 itineraryHTML += moduleCard(
-                    'https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1200&q=70',
+                    'images/pahiyangala1.webp',
                     'Kalutara',
                     'Area map only',
                     'Pahiyangala (Fa-Hien Cave)',
