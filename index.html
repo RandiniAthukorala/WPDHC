@@ -47,6 +47,7 @@
             100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
         }
         select, input[type="date"] { color-scheme: dark; }
+        .schematic { width: 100%; height: auto; display: block; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #140c08; }
         ::-webkit-scrollbar-thumb { background: #c2410c; border-radius: 4px; }
@@ -57,157 +58,178 @@
     <div class="fixed inset-0 z-0 overflow-hidden">
         <img src="images/kelaniya2.webp" alt="" class="w-full h-full object-cover ken">
         <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-[#140c08]/70 to-[#140c08]"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,158,11,.18),transparent_42%),radial-gradient(circle_at_90%_80%,rgba(194,65,12,.2),transparent_40%)]"></div>
     </div>
 
-    <header class="relative z-20 px-5 sm:px-8 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-300 to-laterite flex items-center justify-center text-darkBg shadow-lg">
+    <header class="relative z-20 px-5 sm:px-8 py-4 flex items-center justify-between gap-3 border-b border-amber-200/15 bg-darkBg/40 backdrop-blur-md">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-300 to-laterite flex items-center justify-center text-darkBg shadow-lg shrink-0">
                 <i class="fa-solid fa-landmark"></i>
             </div>
-            <div>
+            <div class="min-w-0">
                 <p class="text-[10px] uppercase tracking-[0.22em] text-amber-200 font-bold">Western Province · Sri Lanka</p>
                 <h1 class="text-lg font-serif font-bold text-white leading-tight">Heritage Corridor</h1>
             </div>
         </div>
-        <span class="px-3 py-1 rounded-full text-[11px] font-semibold bg-amber-400 text-darkBg">Live demo</span>
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+            <a href="#about" class="px-3 py-1.5 rounded-full text-[11px] font-semibold text-amber-100 border border-amber-200/30 hover:bg-amber-400 hover:text-darkBg transition">
+                About
+            </a>
+            <label class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-black/40 border border-amber-200/30">
+                <i class="fa-regular fa-calendar-days text-amber-300 text-xs"></i>
+                <input type="date" id="headerDate" value="2026-09-27" onchange="syncDate(this.value)" class="bg-transparent text-[11px] sm:text-xs text-white font-semibold w-[8.2rem] focus:outline-none">
+            </label>
+        </div>
     </header>
 
     <main class="relative z-10">
-        <section class="px-5 sm:px-8 pt-6 pb-4 max-w-6xl mx-auto text-center rise">
+        <section class="px-5 sm:px-8 pt-6 pb-5 max-w-6xl mx-auto text-center rise">
             <p class="inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full bg-white/10 border border-amber-200/30 text-amber-100 text-xs font-semibold tracking-widest uppercase">
                 <i class="fa-solid fa-qrcode text-amber-300"></i> Scan · choose your hours · walk
             </p>
-            <h2 class="text-4xl sm:text-6xl font-serif font-bold text-white leading-[1.05] max-w-4xl mx-auto">
-                Four kinds of heritage.<br>
-                <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-orange-400">One afternoon — or one extra day.</span>
+            <h2 class="text-4xl sm:text-5xl font-serif font-bold text-white leading-[1.08] max-w-4xl mx-auto">
+                Four kinds of heritage.<br class="hidden sm:block"> One afternoon — or one extra day.
             </h2>
-            <p class="mt-5 text-amber-100/85 max-w-2xl mx-auto text-base sm:text-lg font-light">
+            <p class="mt-5 text-amber-100/90 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
                 Fort streets, a living temple, forest cave monasteries, a prehistoric cave. Tell the page how long you have.
             </p>
         </section>
 
-        <section class="px-5 sm:px-8 max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-8">
-            <button type="button" data-type="urban" onclick="pickPlace('urban')" class="place-card group relative h-44 sm:h-56 rounded-3xl overflow-hidden text-left">
-                <img src="images/colomboPettah2.jpg" alt="Colombo Fort and Pettah" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+        <section class="px-5 sm:px-8 max-w-6xl mx-auto grid grid-cols-2 lg:grid-cols-5 gap-3 mb-8">
+            <button type="button" data-type="urban" onclick="pickPlace('urban')" class="place-card group relative h-40 sm:h-52 rounded-3xl overflow-hidden text-left">
+                <img src="images/colomboPettah2.jpg" alt="Fort and Pettah" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3">
-                    <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold">Half day · Colombo</p>
-                    <p class="font-serif text-lg text-white">Fort &amp; Pettah</p>
+                    <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold"><i class="fa-solid fa-city mr-1"></i> Urban fabric</p>
+                    <p class="font-serif text-base text-white">Fort &amp; Pettah</p>
                 </div>
             </button>
-            <button type="button" data-type="urban" onclick="pickPlace('urban')" class="place-card group relative h-44 sm:h-56 rounded-3xl overflow-hidden text-left">
-                <img src="images/kelaniya1.webp" alt="Kelaniya Raja Maha Vihara" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+            <button type="button" data-type="urban" onclick="pickPlace('urban')" class="place-card group relative h-40 sm:h-52 rounded-3xl overflow-hidden text-left">
+                <img src="images/kelaniya1.webp" alt="Kelaniya" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3">
-                    <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold">Living temple</p>
-                    <p class="font-serif text-lg text-white">Kelaniya</p>
+                    <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold"><i class="fa-solid fa-gopuram mr-1"></i> Living sacred</p>
+                    <p class="font-serif text-base text-white">Kelaniya</p>
                 </div>
             </button>
-            <button type="button" data-type="forest" onclick="pickPlace('forest')" class="place-card group relative h-44 sm:h-56 rounded-3xl overflow-hidden text-left">
+            <button type="button" data-type="forest" onclick="pickPlace('forest')" class="place-card group relative h-40 sm:h-52 rounded-3xl overflow-hidden text-left">
                 <img src="images/Pilikuththuwa1.webp" alt="Pilikuththuwa" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3">
-                    <p class="text-[10px] uppercase tracking-widest text-emerald-200 font-bold">One day · Gampaha</p>
-                    <p class="font-serif text-lg text-white">Pilikuththuwa</p>
+                    <p class="text-[10px] uppercase tracking-widest text-emerald-200 font-bold"><i class="fa-solid fa-tree mr-1"></i> Forest monastery</p>
+                    <p class="font-serif text-base text-white">Pilikuththuwa</p>
                 </div>
             </button>
-            <button type="button" data-type="prehistoric" onclick="pickPlace('prehistoric')" class="place-card group relative h-44 sm:h-56 rounded-3xl overflow-hidden text-left">
+            <button type="button" data-type="prehistoric" onclick="pickPlace('prehistoric')" class="place-card group relative h-40 sm:h-52 rounded-3xl overflow-hidden text-left">
                 <img src="images/pahiyangala2.webp" alt="Pahiyangala" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
                 <div class="absolute bottom-3 left-3 right-3">
-                    <p class="text-[10px] uppercase tracking-widest text-orange-200 font-bold">Full extra day · Kalutara</p>
-                    <p class="font-serif text-lg text-white">Pahiyangala</p>
+                    <p class="text-[10px] uppercase tracking-widest text-orange-200 font-bold"><i class="fa-solid fa-mountain mr-1"></i> Prehistoric</p>
+                    <p class="font-serif text-base text-white">Pahiyangala</p>
+                </div>
+            </button>
+            <button type="button" onclick="document.getElementById('visitDate').focus()" class="place-card group relative h-40 sm:h-52 rounded-3xl overflow-hidden text-left">
+                <img src="images/nawamperehara.webp" alt="Cultural events" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                    <p class="text-[10px] uppercase tracking-widest text-rose-200 font-bold"><i class="fa-solid fa-masks-theater mr-1"></i> Events layer</p>
+                    <p class="font-serif text-base text-white">Festivals on your date</p>
                 </div>
             </button>
         </section>
 
         <section id="planner" class="px-5 sm:px-8 pb-16 max-w-5xl mx-auto">
             <div class="glass-card rounded-[2rem] p-5 sm:p-9 shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-10 -top-10 w-56 h-56 bg-amber-400/15 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="flex items-end justify-between mb-6 relative">
-                    <div>
-                        <p class="text-amber-200 text-xs uppercase tracking-[0.18em] font-bold">Plan in 20 seconds</p>
-                        <h3 class="text-2xl sm:text-3xl font-serif text-white">When are you free?</h3>
-                    </div>
-                    <span class="hidden sm:inline text-xs text-amber-100/70">Tap a place above, or choose time first</span>
-                </div>
+                <p class="text-amber-200 text-xs uppercase tracking-[0.18em] font-bold">Plan a visit</p>
+                <h3 class="text-2xl sm:text-3xl font-serif text-white mb-6">When are you free?</h3>
 
-                <form id="planningForm" onsubmit="handlePlanVisit(event)" class="space-y-5 relative">
+                <form id="planningForm" onsubmit="handlePlanVisit(event)" class="space-y-5">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div class="space-y-3">
                             <label class="block text-xs uppercase tracking-wider text-amber-200 font-bold">
                                 <i class="fa-regular fa-calendar-check mr-1.5"></i> Visit date
                             </label>
-                            <input type="date" id="visitDate" value="2026-09-27" class="w-full bg-black/50 border border-amber-200/30 rounded-2xl px-4 py-3.5 text-white font-medium focus:outline-none focus:border-amber-300">
-                            <div class="rounded-2xl p-3 bg-gradient-to-r from-amber-500/15 to-orange-700/20 border border-amber-300/20 text-xs space-y-1.5">
-                                <div class="flex items-center justify-between text-amber-200 font-bold">
-                                    <span><i class="fa-solid fa-bell mr-1"></i> Events on this date</span>
-                                    <button type="button" onclick="setSampleDate()" class="underline text-amber-100/80">Use 27 Sep 2026</button>
-                                </div>
-                                <div class="flex gap-2 items-center">
-                                    <img src="images/nawamperehara.webp" alt="Perahera" class="w-16 h-12 object-cover rounded-lg shrink-0">
-                                    <img src="images/nawagamuwaPerehara.webp" alt="Temple festival" class="w-16 h-12 object-cover rounded-lg shrink-0">
-                                    <div class="text-amber-50 min-w-0">
-                                        <p>World Tourism Day programme · Colombo</p>
-                                        <p class="text-amber-100/70">Perahera and Poya appear when those dates are selected.</p>
-                                    </div>
-                                    <span class="shrink-0 px-2 py-0.5 bg-amber-400 text-darkBg rounded-full text-[10px] font-extrabold">SAMPLE</span>
-                                </div>
-                            </div>
+                            <input type="date" id="visitDate" value="2026-09-27" onchange="syncDate(this.value)" class="w-full bg-black/50 border border-amber-200/30 rounded-2xl px-4 py-3.5 text-white font-medium focus:outline-none focus:border-amber-300">
+                            <div id="eventBox" class="rounded-2xl p-3 bg-gradient-to-r from-amber-500/15 to-orange-700/20 border border-amber-300/20 text-xs"></div>
                         </div>
                         <div class="space-y-4">
                             <div>
                                 <label class="block text-xs uppercase tracking-wider text-amber-200 font-bold mb-2">
-                                    <i class="fa-regular fa-clock mr-1.5"></i> Time available
+                                    <i class="fa-regular fa-clock mr-1.5"></i> Time available — this comes first
                                 </label>
                                 <select id="timeWindow" class="w-full bg-black/50 border border-amber-200/30 rounded-2xl px-4 py-3.5 text-white font-medium focus:outline-none focus:border-amber-300">
-                                    <option value="short">Half day (about 5 hours) — Fort, Pettah, Kelaniya</option>
-                                    <option value="half" selected>One day (about 8 hours) — Pilikuththuwa</option>
+                                    <option value="short">Half day (about 5 hours) — city and Kelaniya</option>
+                                    <option value="half" selected>One day (about 8 hours) — forest cluster</option>
                                     <option value="full">Full extra day — Pahiyangala</option>
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-amber-200 font-bold mb-2">
-                                    <i class="fa-solid fa-layer-group mr-1.5"></i> What would you like to see?
+                                <label class="block text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">
+                                    <i class="fa-solid fa-layer-group mr-1.5"></i> Prefer a site type? <span class="normal-case tracking-normal font-medium text-amber-100/70">(optional)</span>
                                 </label>
+                                <p class="text-[11px] text-amber-100/65 mb-2">Hours still win. If the type needs more time than you have, we keep the shorter visit and say so.</p>
                                 <select id="typology" class="w-full bg-black/50 border border-amber-200/30 rounded-2xl px-4 py-3.5 text-white font-medium focus:outline-none focus:border-amber-300">
-                                    <option value="all">Match time first (recommended)</option>
-                                    <option value="urban">City and temple (Colombo / Kelaniya)</option>
-                                    <option value="forest">Forest caves (Pilikuththuwa)</option>
-                                    <option value="prehistoric">Prehistoric cave (Pahiyangala)</option>
+                                    <option value="all">No preference — match time</option>
+                                    <option value="urban">Urban streets and living temple</option>
+                                    <option value="forest">Forest cave monasteries</option>
+                                    <option value="prehistoric">Prehistoric cave</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <button type="submit" class="pulse-cta w-full py-4 rounded-2xl bg-gradient-to-r from-amber-300 via-amber-400 to-orange-500 text-darkBg font-extrabold text-lg tracking-wide hover:brightness-110 transition flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <i class="fa-solid fa-route"></i>
                         Plan my visit
-                        <i class="fa-solid fa-arrow-right text-sm"></i>
                     </button>
                 </form>
             </div>
-            <p id="about" class="text-center mt-6 text-xs text-amber-100/55">Conceptual demonstration. Sample calendars and routes. Not a live Tourist Board service.</p>
+            <p class="text-center mt-6 text-xs text-amber-100/55">Conceptual demonstration. Typical travel times, not live traffic. Not a live Tourist Board service.</p>
+        </section>
+
+        <section id="about" class="px-5 sm:px-8 pb-16 max-w-5xl mx-auto scroll-mt-24">
+            <div class="glass-card rounded-[2rem] p-5 sm:p-9">
+                <p class="text-amber-200 text-xs uppercase tracking-[0.18em] font-bold">About this chooser</p>
+                <h3 class="text-2xl sm:text-3xl font-serif text-white mt-2 mb-4">Four archaeological types, and cultural events.</h3>
+                <p class="text-amber-100/90 text-sm leading-relaxed mb-6">
+                    WPDHC is a conceptual chooser for the Western Province. Hours decide how far you can go.
+                    Existing walks and listings stay in place; this page only points to them.
+                </p>
+                <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                    <div class="rounded-2xl bg-black/35 border border-amber-200/20 p-4">
+                        <p class="text-amber-200 font-bold text-xs uppercase tracking-wider mb-1"><i class="fa-solid fa-city mr-1"></i> Urban historic fabric</p>
+                        <p class="text-amber-50/90">Colombo Fort and Pettah — living streets. Use existing illustrated walks; this page does not list every doorway.</p>
+                    </div>
+                    <div class="rounded-2xl bg-black/35 border border-amber-200/20 p-4">
+                        <p class="text-amber-200 font-bold text-xs uppercase tracking-wider mb-1"><i class="fa-solid fa-gopuram mr-1"></i> Living sacred site</p>
+                        <p class="text-amber-50/90">Kelaniya Raja Maha Vihara — art, ritual hours, and a working temple. You are a guest.</p>
+                    </div>
+                    <div class="rounded-2xl bg-black/35 border border-amber-200/20 p-4">
+                        <p class="text-emerald-200 font-bold text-xs uppercase tracking-wider mb-1"><i class="fa-solid fa-tree mr-1"></i> Forest cave monasteries</p>
+                        <p class="text-amber-50/90">Pilikuththuwa cluster — one landscape, offline pack if the forest signal is weak.</p>
+                    </div>
+                    <div class="rounded-2xl bg-black/35 border border-amber-200/20 p-4">
+                        <p class="text-orange-200 font-bold text-xs uppercase tracking-wider mb-1"><i class="fa-solid fa-mountain mr-1"></i> Prehistoric cave</p>
+                        <p class="text-amber-50/90">Pahiyangala — why the site matters. Area map only; excavation points are not published.</p>
+                    </div>
+                </div>
+                <div class="mt-3 rounded-2xl bg-black/35 border border-rose-200/20 p-4 text-sm">
+                    <p class="text-rose-200 font-bold text-xs uppercase tracking-wider mb-1"><i class="fa-solid fa-masks-theater mr-1"></i> Cultural events</p>
+                    <p class="text-amber-50/90">A fifth layer, read from the date you enter: Poya, Vesak, perahera, urban festivals. Sample listings only — not a live Tourist Board feed.</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <div id="resultsModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
-        <div class="glass-panel w-full max-w-3xl rounded-3xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+        <div class="glass-panel w-full max-w-4xl rounded-3xl p-5 sm:p-8 shadow-2xl relative max-h-[92vh] overflow-y-auto">
             <button onclick="closeModal()" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-black/40 text-amber-200 hover:bg-amber-400 hover:text-darkBg flex items-center justify-center">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <div class="flex items-center space-x-3 mb-6 pr-10">
-                <div class="w-11 h-11 rounded-2xl bg-amber-400/20 flex items-center justify-center text-amber-300">
-                    <i class="fa-solid fa-route text-lg"></i>
-                </div>
-                <div>
-                    <span class="text-xs uppercase tracking-widest text-amber-200 font-bold">Suggested visit</span>
-                    <h3 id="modalTitle" class="text-xl sm:text-2xl font-serif font-bold text-white">Your itinerary</h3>
-                </div>
+            <div class="pr-10 mb-4">
+                <span class="text-xs uppercase tracking-widest text-amber-200 font-bold">Suggested visit</span>
+                <h3 id="modalTitle" class="text-xl sm:text-2xl font-serif font-bold text-white">Your itinerary</h3>
             </div>
-            <div id="modalContent" class="space-y-6 text-sm text-amber-50"></div>
-            <div class="mt-8 pt-4 border-t border-amber-200/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-amber-100/80"><i class="fa-solid fa-qrcode text-amber-300 mr-1"></i> Same QR page. Tools change by place: map, ritual hours, offline pack, area map only.</p>
+            <div id="modalContent" class="space-y-5 text-sm text-amber-50"></div>
+            <div class="mt-6 pt-4 border-t border-amber-200/20 flex justify-end">
                 <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-300 to-orange-500 text-darkBg font-bold text-xs">Close</button>
             </div>
         </div>
@@ -218,8 +240,73 @@
     </footer>
 
     <script>
+        const EVENTS = {
+            '2026-09-27': {
+                title: 'World Tourism Day programme',
+                where: 'Colombo (urban festival)',
+                detail: 'Sample listing for the conference date. Pair with a shorter Fort–Pettah walk if hours remain. This is not a live Tourist Board feed.',
+                photo: 'images/nawamperehara.webp',
+                icon: 'fa-flag'
+            },
+            '2026-01-03': {
+                title: 'Kelaniya Duruthu Perahera',
+                where: 'Kelaniya Raja Maha Vihara',
+                detail: 'A working temple festival. Visit as a guest. Guidance on this page pauses during ritual hours. Dress and conduct follow temple custom.',
+                photo: 'images/nawagamuwaPerehara.webp',
+                icon: 'fa-om'
+            },
+            '2026-05-01': {
+                title: 'Vesak illuminations (sample)',
+                where: 'Colombo and temple precincts',
+                detail: 'Sample Vesak-season note. Streets and shrines are in active religious use. Keep audio low; do not treat the night as a spectacle tour.',
+                photo: 'images/kelaniya2.webp',
+                icon: 'fa-moon'
+            }
+        };
+
+        function eventFor(date) {
+            return EVENTS[date] || null;
+        }
+
+        function renderEvents() {
+            const date = document.getElementById('visitDate').value;
+            const ev = eventFor(date);
+            const box = document.getElementById('eventBox');
+            if (ev) {
+                box.innerHTML = `
+                    <div class="flex items-center justify-between text-amber-200 font-bold mb-2">
+                        <span><i class="fa-solid ${ev.icon} mr-1"></i> Event on this date</span>
+                        <span class="px-2 py-0.5 bg-amber-400 text-darkBg rounded-full text-[10px] font-extrabold">SAMPLE</span>
+                    </div>
+                    <div class="flex gap-3 items-start">
+                        <img src="${ev.photo}" alt="" class="w-20 h-14 object-cover rounded-lg shrink-0">
+                        <div>
+                            <p class="text-amber-50 font-semibold">${ev.title}</p>
+                            <p class="text-amber-100/80">${ev.where}</p>
+                            <p class="text-amber-100/65 mt-1">${ev.detail}</p>
+                        </div>
+                    </div>`;
+            } else {
+                box.innerHTML = `
+                    <div class="flex items-center justify-between text-amber-200 font-bold mb-2">
+                        <span><i class="fa-regular fa-calendar mr-1"></i> Events on this date</span>
+                        <button type="button" onclick="setSampleDate()" class="underline text-amber-100/80">Try 27 Sep 2026</button>
+                    </div>
+                    <div class="flex gap-2 items-center">
+                        <span class="w-9 h-9 rounded-lg bg-black/40 flex items-center justify-center text-amber-300"><i class="fa-solid fa-masks-theater"></i></span>
+                        <p class="text-amber-100/75">No sample festival is listed for this day. The visit follows site type and hours. Poya, Vesak and perahera appear when those sample dates are chosen.</p>
+                    </div>`;
+            }
+        }
+
+        function syncDate(value) {
+            document.getElementById('visitDate').value = value;
+            document.getElementById('headerDate').value = value;
+            renderEvents();
+        }
+
         function setSampleDate() {
-            document.getElementById('visitDate').value = '2026-09-27';
+            syncDate('2026-09-27');
         }
 
         function pickPlace(type) {
@@ -230,15 +317,25 @@
             document.getElementById('planner').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
+        function resolveModule(time, type) {
+            const need = { urban: 'short', forest: 'half', prehistoric: 'full' };
+            const rank = { short: 1, half: 2, full: 3 };
+            if (type === 'all') return { module: time, warn: '' };
+            const required = need[type];
+            if (rank[time] >= rank[required]) return { module: required, warn: '' };
+            return {
+                module: time,
+                warn: 'That site type usually needs more hours than you have. We kept the visit that fits your time. Lengthen the window if you want the farther place.'
+            };
+        }
+
         function handlePlanVisit(event) {
             event.preventDefault();
             const date = document.getElementById('visitDate').value;
-            let timeWindow = document.getElementById('timeWindow').value;
+            const timeWindow = document.getElementById('timeWindow').value;
             const typology = document.getElementById('typology').value;
-            if (typology === 'urban') timeWindow = 'short';
-            if (typology === 'forest') timeWindow = 'half';
-            if (typology === 'prehistoric') timeWindow = 'full';
-            generateItineraryContent(date, timeWindow);
+            const resolved = resolveModule(timeWindow, typology);
+            generateItineraryContent(date, resolved.module, resolved.warn);
             const modal = document.getElementById('resultsModal');
             modal.classList.remove('hidden');
             setTimeout(() => modal.classList.remove('opacity-0'), 10);
@@ -250,87 +347,139 @@
             setTimeout(() => modal.classList.add('hidden'), 300);
         }
 
-        function eventNote(date) {
-            if (date === '2026-09-27') {
-                return '<p class="text-sm text-amber-200 mb-3"><i class="fa-solid fa-star mr-1"></i> A sample World Tourism Day programme is listed in Colombo this evening. You can pair it with a shorter Fort–Pettah walk if hours remain.</p>';
-            }
-            if (date === '2026-01-03') {
-                return '<p class="text-sm text-amber-200 mb-3">Kelaniya Duruthu Perahera is on this date. Visit as a guest of a working temple.</p>';
-            }
-            return '';
-        }
-
-        function moduleCard(photo, district, badge, title, step1, step2, photo2) {
-            const extra = photo2 ? `<img src="${photo2}" alt="" class="w-1/3 h-36 object-cover">` : '';
-            const widthClass = photo2 ? 'w-2/3' : 'w-full';
+        function eventBlock(date) {
+            const ev = eventFor(date);
+            if (!ev) return '';
             return `
-                <div class="rounded-2xl overflow-hidden border border-amber-200/20 bg-black/30">
-                    <div class="h-36 w-full overflow-hidden flex">
-                        <img src="${photo}" alt="" class="${widthClass} h-full object-cover">
-                        ${extra}
-                    </div>
-                    <div class="p-4 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs uppercase tracking-wider text-amber-200 font-bold">${district}</span>
-                            <span class="text-xs bg-amber-400 text-darkBg px-2 py-0.5 rounded-full font-bold">${badge}</span>
-                        </div>
-                        <h4 class="text-lg font-serif font-bold text-white">${title}</h4>
-                        <div class="space-y-2 pt-2 border-t border-amber-200/15">
-                            <div class="flex items-start space-x-3 text-xs">
-                                <span class="w-6 h-6 rounded-full bg-amber-400 text-darkBg font-bold flex items-center justify-center shrink-0">1</span>
-                                <div>${step1}</div>
-                            </div>
-                            <div class="flex items-start space-x-3 text-xs">
-                                <span class="w-6 h-6 rounded-full bg-amber-400 text-darkBg font-bold flex items-center justify-center shrink-0">2</span>
-                                <div>${step2}</div>
-                            </div>
-                        </div>
+                <div class="rounded-2xl border border-amber-300/30 bg-amber-500/10 p-4 flex gap-3">
+                    <img src="${ev.photo}" alt="" class="w-24 h-16 object-cover rounded-xl shrink-0">
+                    <div>
+                        <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold"><i class="fa-solid ${ev.icon} mr-1"></i> Cultural event on your date</p>
+                        <p class="font-serif text-lg text-white">${ev.title}</p>
+                        <p class="text-xs text-amber-100/80">${ev.where}. ${ev.detail}</p>
                     </div>
                 </div>`;
         }
 
-        function generateItineraryContent(date, timeWindow) {
+        function mapM1() {
+            return `
+                <div class="rounded-2xl bg-black/35 border border-amber-200/20 p-3">
+                    <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold mb-2">Corridor sketch — not live traffic, not a GPS track</p>
+                    <svg class="schematic" viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="70" y1="80" x2="230" y2="80" stroke="#fbbf24" stroke-width="3"/>
+                        <line x1="250" y1="80" x2="520" y2="80" stroke="#f59e0b" stroke-width="3" stroke-dasharray="8 6"/>
+                        <circle cx="70" cy="80" r="14" fill="#f59e0b"/>
+                        <circle cx="240" cy="80" r="14" fill="#fbbf24"/>
+                        <circle cx="540" cy="80" r="14" fill="#fdba74"/>
+                        <text x="70" y="42" text-anchor="middle" fill="#fff" font-size="13" font-family="Georgia">Fort</text>
+                        <text x="240" y="42" text-anchor="middle" fill="#fff" font-size="13" font-family="Georgia">Pettah</text>
+                        <text x="540" y="42" text-anchor="middle" fill="#fff" font-size="13" font-family="Georgia">Kelaniya</text>
+                        <text x="155" y="68" text-anchor="middle" fill="#fde68a" font-size="11">walk ~1 km · 15 min</text>
+                        <text x="390" y="68" text-anchor="middle" fill="#fde68a" font-size="11">road ~9 km · 35–50 min typical</text>
+                        <text x="70" y="122" text-anchor="middle" fill="#e7e5e4" font-size="10">Colombo</text>
+                        <text x="540" y="122" text-anchor="middle" fill="#e7e5e4" font-size="10">Gampaha</text>
+                    </svg>
+                </div>`;
+        }
+
+        function mapM2() {
+            return `
+                <div class="rounded-2xl bg-black/35 border border-amber-200/20 p-3">
+                    <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold mb-2">Corridor sketch — Colombo to the forest cluster</p>
+                    <svg class="schematic" viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="90" y1="70" x2="520" y2="70" stroke="#34d399" stroke-width="3" stroke-dasharray="8 6"/>
+                        <circle cx="90" cy="70" r="14" fill="#f59e0b"/>
+                        <circle cx="540" cy="70" r="14" fill="#34d399"/>
+                        <text x="90" y="40" text-anchor="middle" fill="#fff" font-size="13" font-family="Georgia">Colombo</text>
+                        <text x="540" y="40" text-anchor="middle" fill="#fff" font-size="13" font-family="Georgia">Pilikuththuwa</text>
+                        <text x="320" y="58" text-anchor="middle" fill="#a7f3d0" font-size="11">~35 km · about 1–1.5 hours typical</text>
+                    </svg>
+                </div>`;
+        }
+
+        function mapM3() {
+            return `
+                <div class="rounded-2xl bg-black/35 border border-amber-200/20 p-3">
+                    <p class="text-[10px] uppercase tracking-widest text-amber-200 font-bold mb-2">Site-area sketch — no excavation points</p>
+                    <svg class="schematic" viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="90" y1="70" x2="430" y2="70" stroke="#fdba74" stroke-width="3" stroke-dasharray="8 6"/>
+                        <circle cx="90" cy="70" r="14" fill="#f59e0b"/>
+                        <ellipse cx="520" cy="70" rx="70" ry="36" fill="none" stroke="#fde68a" stroke-width="2"/>
+                        <text x="90" y="40" text-anchor="middle" fill="#fff" font-size="13" font-family="Georgia">Colombo</text>
+                        <text x="520" y="74" text-anchor="middle" fill="#fde68a" font-size="12" font-family="Georgia">Site area</text>
+                        <text x="270" y="58" text-anchor="middle" fill="#fdba74" font-size="11">~85 km · about 3 hours · full extra day</text>
+                    </svg>
+                    <p class="text-[11px] text-amber-100/70 mt-1">The oval is the public site area. Exact find-spots are not published.</p>
+                </div>`;
+        }
+
+        function placeCard(photo, title, tool, body, linkHtml) {
+            return `
+                <article class="rounded-2xl overflow-hidden border border-amber-200/20 bg-black/30">
+                    <img src="${photo}" alt="" class="w-full h-32 object-cover">
+                    <div class="p-4 space-y-2">
+                        <div class="flex items-center justify-between gap-2">
+                            <h4 class="font-serif text-lg text-white">${title}</h4>
+                            <span class="text-[10px] font-bold uppercase bg-amber-400 text-darkBg px-2 py-0.5 rounded-full shrink-0">${tool}</span>
+                        </div>
+                        <div class="text-xs text-amber-100/85 leading-relaxed space-y-2">${body}</div>
+                        ${linkHtml || ''}
+                    </div>
+                </article>`;
+        }
+
+        function generateItineraryContent(date, timeWindow, warn) {
             const titleEl = document.getElementById('modalTitle');
-            const contentEl = document.getElementById('modalContent');
-            let titleText = '';
-            let itineraryHTML = eventNote(date);
+            let html = '';
+            if (warn) html += `<p class="text-xs text-amber-200 bg-black/30 rounded-xl px-3 py-2">${warn}</p>`;
+            html += eventBlock(date);
 
             if (timeWindow === 'short') {
-                titleText = 'Half day — Fort, Pettah and Kelaniya';
-                itineraryHTML += moduleCard(
+                titleEl.textContent = 'Half day — Fort, Pettah and Kelaniya';
+                html += mapM1();
+                html += '<div class="grid sm:grid-cols-2 gap-4">';
+                html += placeCard(
                     'images/colomboPettah.jpg',
-                    'Colombo and Gampaha',
-                    'Map and QR',
-                    'Urban streets and a living temple',
-                    '<strong class="text-white">Colombo Fort and Pettah</strong> — walking stories and on-site QR. Linked illustrated walks stay in place; this page does not replace them.',
-                    '<strong class="text-white">Kelaniya Raja Maha Vihara</strong> — Sinhala, Tamil and English. Guidance pauses during ritual hours.',
-                    'images/kelaniyaart.webp'
+                    'Colombo Fort and Pettah',
+                    'Map + QR',
+                    '<p><b>About.</b> Colonial commercial streets and a living mercantile town, not an empty monument precinct.</p><p><b>What to visit.</b> This page does not list every doorway. Use the existing illustrated walks for buildings and street stories — WPDHC only sequences the stop.</p><p><b>Typical move.</b> Fort to Pettah is a short walk (about 1 km, 15 minutes).</p>',
+                    '<a class="inline-block mt-1 text-amber-200 underline text-xs" href="https://i-discoverasia.com/neighbourhoods/colombo/" target="_blank" rel="noopener">Open iDiscover Colombo walks</a>'
                 );
+                html += placeCard(
+                    'images/kelaniyaart.webp',
+                    'Kelaniya Raja Maha Vihara',
+                    'Ritual calendar',
+                    '<p><b>About.</b> A working Buddhist temple on the Kelani river. You are a guest of a living sacred site.</p><p><b>Art.</b> Twentieth-century murals associated with Solias Mendis; look, do not touch.</p><p><b>Rituals.</b> Typical puja windows and Poya change the day. This demo pauses “go now” language during those hours. Low or off audio. Sinhala, Tamil and English.</p><p><b>From Pettah.</b> About 9 km by road; allow 35–50 minutes in ordinary traffic.</p>',
+                    ''
+                );
+                html += '</div>';
             } else if (timeWindow === 'half') {
-                titleText = 'One day — Pilikuththuwa cluster';
-                itineraryHTML += moduleCard(
-                    'images/pilikuththuwa2.webp',
-                    'Gampaha',
+                titleEl.textContent = 'One day — Pilikuththuwa cluster';
+                html += mapM2();
+                html += placeCard(
+                    'images/Pilikuththuwa1.webp',
+                    'Pilikuththuwa forest cave monasteries',
                     'Offline pack',
-                    'Forest cave monasteries',
-                    '<strong class="text-white">Before you leave Colombo</strong> — download the trail so it still works if the forest signal is weak.',
-                    '<strong class="text-white">Pilikuththuwa</strong> — drip-ledged caves as one landscape, not three separate apps.'
+                    '<p><b>About.</b> Drip-ledged rock shelters in a forest monastery landscape. Treat Warana and Maligatenna as one cluster, not three apps.</p><p><b>On site.</b> Download the trail in Colombo. Forest signal is not assumed. Do not climb or touch inscriptions.</p><p><b>Travel.</b> From Colombo typically about 35 km and 1–1.5 hours. This is a day, not a half-day add-on after Fort.</p>',
+                    '<a class="inline-block mt-1 text-amber-200 underline text-xs" href="https://touristboard.wp.gov.lk/" target="_blank" rel="noopener">Western Province Tourist Board destination pages</a>'
                 );
             } else {
-                titleText = 'Full day — Pahiyangala';
-                itineraryHTML += moduleCard(
-                    'images/pahiyangala1.webp',
-                    'Kalutara',
-                    'Area map only',
+                titleEl.textContent = 'Full extra day — Pahiyangala';
+                html += mapM3();
+                html += placeCard(
+                    'images/pahiyangala2.webp',
                     'Pahiyangala (Fa-Hien Cave)',
-                    '<strong class="text-white">Travel</strong> — a full extra day from Colombo. Do not pair this with a half-day city walk.',
-                    '<strong class="text-white">On site</strong> — why the cave matters for prehistory. The map shows the site area, not excavation points.'
+                    'Area map only',
+                    '<p><b>About.</b> A prehistoric habitation site in Kalutara District. The story is why the deposit matters for early human history in the island — not a treasure hunt.</p><p><b>On site.</b> Interpretation and a site-area map. Excavation coordinates are not published.</p><p><b>Travel.</b> From Colombo typically about 85 km and three hours. Do not pair this with a city half-day.</p>',
+                    ''
                 );
             }
 
-            titleEl.textContent = titleText;
-            contentEl.innerHTML = itineraryHTML;
+            html += '<p class="text-[11px] text-amber-100/55">Existing platforms (iDiscover, HeritageSL, Tourist Board pages) remain the place-level content. WPDHC only chooses the module and the on-site mode.</p>';
+            document.getElementById('modalContent').innerHTML = html;
         }
+
+        renderEvents();
     </script>
 </body>
 </html>
